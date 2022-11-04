@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %}Order planner{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+
+
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Order planner</h1>
+
+            <form method="POST" enctype="multipart/form-data">
+                <div class="form_group">
+                    <label>Select branch:</label>
+                    <br>
+                    <select name="what_branch">
+                        <option value="...">...</option>
+                        <option value="bexley">Bexley</option>
+                        <option value="crawley">Crawley</option>
+                        <option value="herne">Herne Bay</option>
+                        <option value="highgate">Highgate</option>
+                        <option value="peckham">Peckham</option>
+                    </select>
+                    <br>
+                    <br>
+                    <label style="font-size:1em;">Add csv file with list of products on back orders:
+                        <br>(file needs to be called <span class="inside">"back_orders.csv"</span>). The file
+                        needs to have 3 columns without headers, 1st PP product code, 2nd total quantity on back order,
+                        3rd quantity on back order which is already delivered.</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="back_orders" id="back_orders">
+                        <label class="custom-file-label"></label>
+                    </div>
+                    <br>
+                    <label style="font-size:1em;">Add csv file with current stock:
+                        <br>(file needs to be called <span class="inside">"current.csv"</span>). The file
+                        needs to have 2 columns without headers, 1st columns Buildbase product code, 2nd column quantity of
+                        current stock at the branch.</label>
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="current_stock" id="current_stock">
+                        <label class="custom-file-label"></label>
+                    </div>
+                </div>
+                <br>
+                <label style="font-size:1em;">Please enter the password to continue:</label>
+                <input type="password" id="password" name="password">
+                <br>
+                <br>
+                <button type="submit" class="btn btn-primary">Plan new order</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
