@@ -1,14 +1,14 @@
 import csv
 
 
-def calculate(pp_codes_file, buildbase_codes_file, back_orders_file, current_stock_file,
+def calculate(pp_codes_file, b_codes_file, back_orders_file, current_stock_file,
               branch_target, proposal):
 
     def pp_codes() -> list:
         """
         function open file with PP product codes sorted in sequence and transfers
         them to python list in the same sequence as b_codes() function does with
-        Buildbase product codes
+        b product codes
         :return: list of PP product codes
         """
         pp_code = []
@@ -23,15 +23,15 @@ def calculate(pp_codes_file, buildbase_codes_file, back_orders_file, current_sto
 
     def b_codes() -> list:
         """
-        function open file with Buildbase product codes sorted in sequence and
+        function open file with b product codes sorted in sequence and
         transfers them to python list in the same sequence as pp_codes() function
         does with PP product codes
-        :return: list of Buildbase product codes
+        :return: list of b product codes
         """
         b_code = []
-        with open(buildbase_codes_file, "r") as file:
+        with open(b_codes_file, "r") as file:
             line = csv.reader(file)
-            # takes each Buildbase product code from the file and add it to python list
+            # takes each b product code from the file and add it to python list
             for product in line:
                 for item in product:
                     product = item
@@ -74,14 +74,14 @@ def calculate(pp_codes_file, buildbase_codes_file, back_orders_file, current_sto
         :return: dictionary with pairs of product and total quantity
         """
         # total_s dictionary take all the info from net_back_orders and keep adding
-        # products which are already available in Buildbase stock
+        # products which are already available in b stock
         total_s = net
         not_in = []
         with open(current_stock_file, "r") as file:
             line = csv.reader(file)
             for product in line:
-                # transfer Buildbase code from their current file to PP code for further use
-                # PP codes and Buildbase codes are in the same sequences in two different
+                # transfer b code from their current file to PP code for further use
+                # PP codes and b codes are in the same sequences in two different
                 # lists, so every index value of list matches up with each other
                 index = B_code.index(product[0])
                 product[0] = PP_code[index]
