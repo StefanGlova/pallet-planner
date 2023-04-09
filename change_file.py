@@ -1,7 +1,7 @@
 import csv
 
 
-def change_file(pp_codes_file, buildbase_codes_file, proposal,
+def change_file(pp_codes_file, b_codes_file, proposal,
                 branch_target, order):
 
     pp_code = []
@@ -18,9 +18,9 @@ def change_file(pp_codes_file, buildbase_codes_file, proposal,
 
     b_code = []
 
-    with open(buildbase_codes_file, "r") as file:
+    with open(b_codes_file, "r") as file:
         line = csv.reader(file)
-        # takes each Buildbase product code from the file and add it to python list
+        # takes each b product code from the file and add it to python list
         for product in line:
             for item in product:
                 product = item
@@ -33,8 +33,8 @@ def change_file(pp_codes_file, buildbase_codes_file, proposal,
 
         for product in lines:
             # print(product)
-            # transfer Buildbase code from their current file to PP code for further use
-            # PP codes and Buildbase codes are in the same sequences in two different
+            # transfer b code from their current file to PP code for further use
+            # PP codes and b codes are in the same sequences in two different
             # lists, so every index value of list matches up with each other
             a = pp_code.index(product[0])
             # print(a)
