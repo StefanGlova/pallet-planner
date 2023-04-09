@@ -66,7 +66,7 @@ def change_file(pp_codes_file, b_codes_file, proposal,
 
     with open(order, "w") as file:
         # write header
-        file.write("%s,%s,%s,%s\n" % ("SKU", "Buildbase SKU", "Description", "Quantity"))
+        file.write("%s,%s,%s,%s\n" % ("SKU", "b SKU", "Description", "Quantity"))
         # using order list from the "to_order" function, write every product
         # and quantity to the new csv file
         for product in full_list:
