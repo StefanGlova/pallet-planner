@@ -177,14 +177,14 @@ def branch():
 
         # allocate files to variables which are used by both functions below
         pp_codes_file = os.path.join(basedir, "static/" + what_branch + "/PP_codes.csv")
-        buildbase_codes_file = os.path.join(basedir, "static/" + what_branch + "/Buildbase_codes.csv")
+        b_codes_file = os.path.join(basedir, "static/" + what_branch + "/b_codes.csv")
         back_orders_file = os.path.join(basedir, "static/input/back_orders.csv")
         current_stock_file = os.path.join(basedir, "static/input/current.csv")
         branch_target = os.path.join(basedir, "static/" + what_branch + "/database.csv")
         proposal = os.path.join(basedir, "static/input/new_order.csv")
 
         # call calculate() function
-        calculate(pp_codes_file, buildbase_codes_file, back_orders_file, current_stock_file,
+        calculate(pp_codes_file, b_codes_file, back_orders_file, current_stock_file,
                   branch_target, proposal)
 
         # call change_file() function
