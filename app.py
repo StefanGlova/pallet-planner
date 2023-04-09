@@ -188,7 +188,7 @@ def branch():
                   branch_target, proposal)
 
         # call change_file() function
-        change_file(pp_codes_file, buildbase_codes_file, proposal,
+        change_file(pp_codes_file, b_codes_file, proposal,
                     branch_target, "order_proposal.csv")
 	
         return send_file("order_proposal.csv", as_attachment=True)
